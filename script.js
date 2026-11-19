@@ -117,6 +117,7 @@ const TRACKS = [
   { artist: "Visions of Atlantis", title: "Legion Of The Seas", url: ytSearch("Visions of Atlantis Legion Of The Seas official video Napalm Records") },
   { artist: "Visions of Atlantis", title: "A Journey To Remember", url: ytSearch("Visions of Atlantis A Journey To Remember official video Napalm Records") },
   { artist: "Visions of Atlantis", title: "The Deep & The Dark", url: ytSearch("Visions of Atlantis The Deep The Dark official video Napalm Records") },
+  { artist: "Visions of Atlantis", title: "Master the Hurricane", url: ytSearch("VISIONS OF ATLANTIS - Master the Hurricane (Official Video) | Napalm Records") },
 
   // â€” XANDRIA â€”
   { artist: "XANDRIA", title: "Nightfall", url: ytSearch("XANDRIA Nightfall official video Napalm Records") },
