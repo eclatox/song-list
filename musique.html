@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playlist</title>
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="stylesong.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☾</text></svg>">
+  </head>
+  <body>
+   <nav>
+    <a class="logo" href="index.html">☾ eclatox site</a>
+    <ul>
+     <li><a href="index.html">Accueil</a></li>
+      <li><a href="jeux.html">Jeux</a></li>
+      <li><a class="actif" href="musique.html">Musique</a></li>
+    </ul>
+  </nav>
+     
+<div class="wrap">
+  <header>
+    <p class="subtitle">Ma sélection musicale</p>
+    <div class="divider"></div>
+  </header>
+ 
+  <div class="controls">
+    <div class="search-field">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="searchInput" placeholder="Rechercher un artiste ou un titre…" autocomplete="off">
+    </div>
+    <button class="sort-btn" id="sortBtn" data-dir="asc">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h6M3 12h10M3 18h14"/></svg>
+      <span id="sortLabel">Trier A → Z</span>
+    </button>
+  </div>
+ 
+  <p class="count-line" id="countLine"></p>
+ 
+  <div class="table-shell">
+    <table>
+      <thead>
+        <tr>
+          <th class="col-num">#</th>
+          <th>Artiste</th>
+          <th>Titre</th>
+          <th class="col-action">Écouter</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+    <div class="empty-state" id="emptyState" style="display:none;">Aucun morceau ne correspond à ta recherche.</div>
+  </div>
+ 
+  <footer>Catalogue de liens — aucun fichier audio n'est hébergé ici.</footer>
+</div>
+ 
+<script src="script.js"></script>
+ 
+  </body>
+</html>
