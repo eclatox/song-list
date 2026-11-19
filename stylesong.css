@@ -1,0 +1,311 @@
+:root {
+  --bg: #0a0809;
+  --bg-alt: #131013;
+  --surface: #161215;
+  --border: #2c1f23;
+  --border-soft: #221a1d;
+  --accent: #7d1f2c;
+  --accent-bright: #b83a4a;
+  --accent-glow: rgba(184, 58, 74, 0.18);
+  --text: #e8e2e0;
+  --text-dim: #a89ba0;
+  --text-faint: #6f6165;
+  --serif: 'Cinzel', serif;
+  --sans: 'Inter', system-ui, sans-serif;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  box-sizing: border-box;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(ellipse 120% 80% at 50% -10%, #1a0f12 0%, var(--bg) 55%);
+  color: var(--text);
+  font-family: var(--sans);
+  line-height: 1.5;
+  min-height: 100%;
+}
+
+.wrap {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 72px 24px 96px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.mark {
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  color: var(--accent-bright);
+  font-family: var(--sans);
+  font-weight: 500;
+  margin: 0 0 18px;
+}
+
+h1 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+  letter-spacing: 0.03em;
+  margin: 0 0 14px;
+  color: #f2ece9;
+  text-shadow: 0 0 24px rgba(184, 58, 74, 0.25);
+}
+
+.subtitle {
+  font-size: 16px;
+  color: var(--text-dim);
+  font-style: italic;
+  margin: 0;
+  font-family: 'Inter', serif;
+}
+
+.divider {
+  width: 64px;
+  height: 1px;
+  margin: 28px auto 0;
+  background: linear-gradient(90deg, transparent, var(--accent-bright), transparent);
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.search-field {
+  position: relative;
+  flex: 1 1 260px;
+}
+
+.search-field input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 13px 16px 13px 40px;
+  border-radius: 6px;
+  font-family: var(--sans);
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-field input::placeholder { color: var(--text-faint); }
+
+.search-field input:focus {
+  border-color: var(--accent-bright);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.search-field svg {
+  position: absolute;
+  left: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  stroke: var(--text-faint);
+  pointer-events: none;
+}
+
+button.sort-btn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 13px 20px;
+  border-radius: 6px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+  white-space: nowrap;
+}
+
+button.sort-btn:hover {
+  border-color: var(--accent-bright);
+  color: #f2ece9;
+  background: #1a1517;
+}
+
+button.sort-btn svg { width: 14px; height: 14px; stroke: currentColor; transition: transform 0.2s ease; }
+button.sort-btn[data-dir="desc"] svg { transform: scaleY(-1); }
+
+.count-line {
+  font-size: 13px;
+  color: var(--text-faint);
+  margin: 0 0 14px 2px;
+}
+
+/* Table */
+.table-shell {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead th {
+  text-align: left;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-alt);
+}
+
+thead th.col-num { width: 48px; text-align: center; }
+thead th.col-action { width: 150px; text-align: right; }
+
+tbody tr {
+  border-bottom: 1px solid var(--border-soft);
+  transition: background 0.18s ease;
+}
+
+tbody tr:last-child { border-bottom: none; }
+
+tbody tr:hover {
+  background: linear-gradient(90deg, var(--accent-glow), transparent 70%);
+}
+
+tbody td {
+  padding: 16px 20px;
+  font-size: 15px;
+  vertical-align: middle;
+}
+
+td.col-num {
+  text-align: center;
+  color: var(--text-faint);
+  font-family: var(--serif);
+  font-size: 14px;
+}
+
+td.col-artist { color: var(--text-dim); }
+td.col-title { color: #f2ece9; font-weight: 500; }
+
+td.col-action { text-align: right; }
+
+.yt-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--accent-bright);
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.yt-link:hover {
+  border-color: var(--accent-bright);
+  background: var(--accent);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.yt-link svg { width: 13px; height: 13px; fill: currentColor; }
+
+.empty-state {
+  text-align: center;
+  padding: 48px 20px;
+  color: var(--text-faint);
+  font-style: italic;
+  font-size: 15px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 40px;
+  color: var(--text-faint);
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+}
+
+/* Mobile: cards */
+@media (max-width: 640px) {
+  .wrap { padding: 48px 16px 64px; }
+
+  thead { display: none; }
+
+  tbody tr {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 16px 4px;
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  tbody td {
+    padding: 0 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 14px;
+  }
+
+  td.col-num { display: none; }
+
+  td.col-artist::before { content: "Artiste"; color: var(--text-faint); font-size: 11px; letter-spacing: 0.05em; }
+  td.col-title::before { content: "Titre"; color: var(--text-faint); font-size: 11px; letter-spacing: 0.05em; }
+  td.col-action { justify-content: flex-end; margin-top: 6px; }
+  td.col-action::before { content: none; }
+
+  .controls { flex-direction: column; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+
+/* â”€â”€ Overrides pour neutraliser le CSS "faÃ§on Excel" du reste du site â”€â”€ */
+.table-shell table {
+  background: transparent;
+}
+
+.table-shell th,
+.table-shell td {
+  background: transparent;
+  border: none;
+}
+
+.table-shell thead th {
+  background: var(--bg-alt);
+  color: var(--text-dim);
+}
+
+.table-shell thead th.col-num { text-align: center; }
+.table-shell thead th.col-action { text-align: right; }
+
+/* Force le centrage du body, peu importe ce que dÃ©finit l'autre fichier CSS */
+body {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
